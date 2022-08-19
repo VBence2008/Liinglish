@@ -101,16 +101,17 @@ def translate_text(sentence):
 
 
 def translate_file(source, output):
-    with open(source, 'r') as file:
+    with open(source, 'r', encoding='utf-8') as file:
         text = file.read()
         text = translate_text(text)
-        with open(output, 'w') as file:
+        with open(output, 'w', encoding='utf-8') as file:
             file.write(text)
         file.close()
 
 
-text = "Test sentence"
+text = "File translation from English to Liinglish was successfully completed!"
 result = translate_text(text)
 print(result)
 
-translate_file("Path/To/Source/File", "Path/To/Output/File")
+translate_file("C:/Users/Bence/Downloads/Input.txt",
+               "C:/Users/Bence/Downloads/Output.txt")
