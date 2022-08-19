@@ -112,6 +112,6 @@ def translate_file(source, output):
 translate_file("C:/Users/Bence/Downloads/Input.txt",
                "C:/Users/Bence/Downloads/Output.txt")
 
-text = "File translation from Liinglish was successfully completed!"
+text = "File translation to Liinglish was successfully completed!"
 result = translate_text(text)
 print(result)
