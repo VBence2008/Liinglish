@@ -101,10 +101,10 @@ def translate(sentence):
 
 
 def File():
-    with open('C:/FILES/Others/Others/Todo.txt', 'r') as file:
+    with open('Path/To/Source/File', 'r') as file:
         text = file.read()
         text = translate(text)
-        with open('C:/Users/Bence/Downloads/Out.txt', 'w') as file:
+        with open('Path/To/Output/File', 'w') as file:
             file.write(text)
         file.close()
 
