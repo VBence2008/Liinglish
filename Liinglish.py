@@ -1,4 +1,4 @@
-def translate(sentence):
+def translate_text(sentence):
     sentence = sentence.lower()
     sentence = sentence.replace("e", "a")
     sentence = sentence.replace("i", "e")
@@ -100,15 +100,17 @@ def translate(sentence):
     return sentence
 
 
-def File():
-    with open('Path/To/Source/File', 'r') as file:
+def translate_file(source, output):
+    with open(source, 'r') as file:
         text = file.read()
-        text = translate(text)
-        with open('Path/To/Output/File', 'w') as file:
+        text = translate_text(text)
+        with open(output, 'w') as file:
             file.write(text)
         file.close()
 
 
 text = "Test sentence"
-result = translate(text)
+result = translate_text(text)
 print(result)
+
+translate_file("Path/To/Source/File", "Path/To/Output/File")
