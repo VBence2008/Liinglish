@@ -100,5 +100,15 @@ def translate(sentence):
     return sentence
 
 
+def File():
+    with open('C:/FILES/Others/Others/Todo.txt', 'r') as file:
+        text = file.read()
+        text = translate(text)
+        with open('C:/Users/Bence/Downloads/Out.txt', 'w') as file:
+            file.write(text)
+        file.close()
+
+
 text = "Test sentence"
-print(translate(text))
+result = translate(text)
+print(result)
