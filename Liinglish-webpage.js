@@ -16,6 +16,29 @@ function getAllTextNodes() {
   return textNodes;
 }
 function cyrillic(sentence) {
+  sentence = sentence.replace(/A/g, "\u0410");
+  sentence = sentence.replace(/\u00c4/g, "\u04d2");
+  sentence = sentence.replace(/B/g, "\u0411");
+  sentence = sentence.replace(/D/g, "\u0414");
+  sentence = sentence.replace(/E/g, "\u0415");
+  sentence = sentence.replace(/\u00cb/g, "\u0401");
+  sentence = sentence.replace(/G/g, "\u0413");
+  sentence = sentence.replace(/H/g, "\u0425");
+  sentence = sentence.replace(/K/g, "\u041a");
+  sentence = sentence.replace(/L/g, "\u041b");
+  sentence = sentence.replace(/M/g, "\u041c");
+  sentence = sentence.replace(/N/g, "\u041d");
+  sentence = sentence.replace(/O/g, "\u041e");
+  sentence = sentence.replace(/\u00d6/g, "\u04e6");
+  sentence = sentence.replace(/P/g, "\u041f");
+  sentence = sentence.replace(/R/g, "\u0420");
+  sentence = sentence.replace(/S/g, "\u0421");
+  sentence = sentence.replace(/T/g, "\u0422");
+  sentence = sentence.replace(/U/g, "\u0423");
+  sentence = sentence.replace(/\u00dc/g, "\u04f0");
+  sentence = sentence.replace(/V/g, "\u0412");
+  sentence = sentence.replace(/Y/g, "\u0418");
+  sentence = sentence.replace(/\u00df/g, "\u04e4");
   sentence = sentence.replace(/a/g, "\u0430");
   sentence = sentence.replace(/\u00e4/g, "\u04d3");
   sentence = sentence.replace(/b/g, "\u0431");
@@ -124,12 +147,13 @@ function translate_text(sentence) {
   sentence = sentence.replace(/ss/g, "oss");
   sentence = sentence.replace(/tt/g, "utt");
   sentence = sentence.replace(/vv/g, "yvv");
+  var new_sentence_split = sentence.split(" ");
   var new_sentence = "";
-  for (var i = 0; i < sentence.split().length; i++) {
-    if (sentence.split()[i].length < 3) {
-      new_sentence += sentence.split()[i];
+  for (var i = 0; i < new_sentence_split.length; i++) {
+    if (new_sentence_split[i].length < 3) {
+      new_sentence += new_sentence_split[i];
     } else {
-      new_sentence += sentence.split()[i] + " ";
+      new_sentence += new_sentence_split[i] + " ";
     }
   }
   sentence = new_sentence;
@@ -156,6 +180,7 @@ function translate_text(sentence) {
   sentence = sentence.replace(/vvv/g, "vv");
   sentence = sentence.replace(/yyy/g, "yy");
   sentence = sentence.replace(/\u00ff\u00ff\u00ff/g, "\u00ff\u00ff");
+  sentence = sentence.charAt(0).toUpperCase() + sentence.slice(1);
   return sentence;
 }
 getAllTextNodes().forEach((node) => {
